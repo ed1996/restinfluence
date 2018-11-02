@@ -1,1 +1,5 @@
 <h2>Bienvenue sur la premiere page</h2>
+
+<%= link_to 'Inscription', new_restorer_registration_path %>
+<%= link_to 'Connexion', new_restorer_session_path %>
+<%= link_to 'Deconnexion', destroy_restorer_session_path, method: :delete %>
