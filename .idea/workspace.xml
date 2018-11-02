@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="89b3bea1-5dba-4e68-b905-9900906d2e66" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/restorers_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/restorers_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,16 +38,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pages_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,11 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,31 +78,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <file leaf-file-name="application_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="123" lean-forward="false" selection-start-line="8" selection-start-column="123" selection-end-line="8" selection-end-column="123" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restorers_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/restorers_controller.rb">
+      <file leaf-file-name="registrations_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/restorers/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="75">
+              <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -128,15 +121,16 @@
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/restorer.rb" />
-        <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/views/layouts/_navigation.html.erb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/restorers_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/restorers/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/restorers_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       </list>
     </option>
   </component>
@@ -414,12 +408,12 @@
       <workItem from="1541174807417" duration="1554000" />
       <workItem from="1541176564658" duration="37000" />
       <workItem from="1541176604635" duration="3190000" />
-      <workItem from="1541180477872" duration="4435000" />
+      <workItem from="1541180477872" duration="5624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9231000" />
+    <option name="totallyTimeSpent" value="10420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="967" extended-state="0" />
@@ -648,22 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="80" lean-forward="false" selection-start-line="8" selection-start-column="80" selection-end-line="8" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="37" lean-forward="false" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -680,46 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="20" column="205" lean-forward="false" selection-start-line="20" selection-start-column="205" selection-end-line="20" selection-end-column="205" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/restorers_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/restorers/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -732,6 +670,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/restorers/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/restorers_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="44" lean-forward="false" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="73" lean-forward="false" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_navigation.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="20" column="205" lean-forward="false" selection-start-line="20" selection-start-column="205" selection-end-line="20" selection-end-column="205" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="123" lean-forward="false" selection-start-line="8" selection-start-column="123" selection-end-line="8" selection-end-column="123" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
