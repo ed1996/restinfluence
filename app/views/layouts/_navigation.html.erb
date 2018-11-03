@@ -12,6 +12,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
+
+        <li>
+          <%= link_to new_restaurant_path do %>
+            <i class="fa fa-home fa-lg"></i>Mon/mes restaurant(s)
+              <% end %>
+        </li>
+
         <% if (!restorer_signed_in?)  %>
           <li><%= link_to 'Inscription', new_restorer_registration_path %></li>
           <li><%= link_to 'Connexion', new_restorer_session_path %></li>
