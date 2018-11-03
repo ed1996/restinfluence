@@ -12,7 +12,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <% if (!restorer_signed_in?) %>
+        <% if (!restorer_signed_in?)  %>
           <li><%= link_to 'Inscription', new_restorer_registration_path %></li>
           <li><%= link_to 'Connexion', new_restorer_session_path %></li>
             <% else %>
