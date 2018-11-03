@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181103111358) do
+ActiveRecord::Schema.define(version: 20181103121257) do
 
   create_table "influencers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20181103111358) do
     t.bigint "restorer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "listing_name"
     t.index ["restorer_id"], name: "index_restaurants_on_restorer_id"
   end
 
