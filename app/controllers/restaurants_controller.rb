@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:show, :edit, :update]
   before_action :authenticate_restorer!, except: [:show]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @restaurants = current_restorer.restaurants
@@ -14,21 +15,34 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = current_restorer.restaurants.build(restaurant_params)
     if @restaurant.save
-      redirect_to @restaurant, notice:"Votre restaurant a été ajouté avec succés"
+      if params[:images]
+        params[:images].each do |i|
+          @restaurant.photos.create(image: i)
+        end
+      end
+      @photos = @restaurant.photos
+      redirect_to edit_restaurant_path(@restaurant), notice:"Votre restaurant a été ajouté avec succés"
     else
       render :new
     end
   end
 
   def show
+    @photos = @restaurant.photos
   end
 
   def edit
+    @photos = @restaurant.photos
   end
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to @restaurant, notice:"Modification enregistrée..."
+      if params[:images]
+        params[:images].each do |i|
+          @restaurant.photos.create(image: i)
+        end
+      end
+      redirect_to edit_restaurant_path(@restaurant), notice:"Modification enregistrée..."
     else
       render :edit
     end
@@ -41,6 +55,13 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:restaurant_type, :summary, :address, :reduction, :price, :active)
+  end
+
+  def require_same_user
+    if current_restorer.id != @restaurant.user_id
+      flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
+      redirect_to root_path
+    end
   end
 
 end
