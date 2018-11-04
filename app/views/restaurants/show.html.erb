@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <!-- photo principale de l'annonce -->
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <%= image_tag avatar_url(@restaurant.restorer), class:"img-circle avatar-large" %>
+            <br><br>
+            <%= @restaurant.restorer.fullname %>
+          </div>
+          <div class="col-md-9">
+            <h4><%= @restaurant.listing_name %></h4>
+            <p><%= @restaurant.address %></p>
+            <%= @restaurant.restaurant_type %>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- Description -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>A propos des attentes du restaurant</h2>
+        <p><%= @restaurant.summary %></p>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <!-- Formulaire de réservation -->
+    </div>
+
+    </div>
+  </div>
+</div>
