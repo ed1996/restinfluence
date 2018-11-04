@@ -19,6 +19,8 @@ gem 'toastr-rails'
 
 gem 'font-awesome-sass', '~> 5.5.0'
 
+gem 'paperclip-cloudinary'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql as the database for Active Record
