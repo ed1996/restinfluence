@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :restorers, only: [:show]
   resources :restaurants
+  resources :photos
 end
