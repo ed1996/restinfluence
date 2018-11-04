@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   belongs_to :restorer
+  has_many :photos
 
   validates :restaurant_type, presence: true
   validates :summary, presence: true, length: {maximum: 600}
