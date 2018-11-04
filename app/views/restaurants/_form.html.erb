@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <div class="container">
-      <%= form_for @restaurant do |f| %>
+      <%= form_for @restaurant, html: {multipart: true} do |f| %>
           <%= render 'shared/errors' %>
         <div class="row">
           <div class="col-md-12 select">
@@ -32,6 +32,19 @@
               <%= f.text_field :address, placeholder:"l'adresse de votre restaurant", class:"form-control" %>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <psan class="btn btn-default btn-file">
+                  <i class="fa fa-cloud-upload fa-lg"></i> Télécharger vos photos
+                  <%= file_field_tag "images[]", type: :file, multiple: true %>
+                </psan>
+              </div>
+            </div>
+          </div>
+
+          <div id="photos"><%= render 'photos/list' %></div>
+
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">

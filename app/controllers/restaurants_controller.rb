@@ -58,7 +58,7 @@ class RestaurantsController < ApplicationController
   end
 
   def require_same_user
-    if current_restorer.id != @restaurant.user_id
+    if current_restorer.id != @restaurant.restorer_id
       flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
       redirect_to root_path
     end
