@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :restorers, only: [:show]
-  resources :restaurants
+  resources :restaurants do
+    resources :menus
+  end
   resources :photos
 end

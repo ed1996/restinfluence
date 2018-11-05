@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181104170042) do
+ActiveRecord::Schema.define(version: 20181105180652) do
 
   create_table "influencers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20181104170042) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_influencers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_influencers_on_reset_password_token", unique: true
+  end
+
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
+    t.string "category"
+    t.string "title"
+    t.text "content"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "price_menu", limit: 24
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
   end
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
@@ -66,6 +77,7 @@ ActiveRecord::Schema.define(version: 20181104170042) do
     t.index ["reset_password_token"], name: "index_restorers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "menus", "restaurants"
   add_foreign_key "photos", "restaurants"
   add_foreign_key "restaurants", "restorers"
 end

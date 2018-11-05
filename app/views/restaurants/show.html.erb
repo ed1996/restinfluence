@@ -41,5 +41,108 @@
     </div>
 
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Ajout de mon menu</h2>
+        <%= form_for([@restaurant, @restaurant.menu.new ]) do |f| %>
+          <label>Catégorie plat</label>
+            <%= f.select :category, [["Entrée","Entrée"],["Plat","Plat"],["Déssert","Déssert"]], id: "category", prompt: "A sélectionner...", class:"form-control" %>
+
+            <label>Nom de votre plat</label>
+            <%= f.text_field :title, placeholder:"Nom de votre plat" %>
+
+            <label>Description du plat</label>
+            <%= f.text_field :content, placeholder:"Description du plat" %>
+
+            <label>Prix du plat</label>
+            <%= f.text_field :price_menu, placeholder:"Prix du plat" %>
+
+            <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+
+            <%= f.submit %>
+
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4>Entrée</h4>
+        <% @menus.each do |menu| %>
+            <% if menu.category == "Entrée" %>
+                <%= menu.title %>
+                <%= menu.price_menu %>€<br>
+                <%= menu.content %><br>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4>Plat</h4>
+        <% @menus.each do |menu| %>
+            <% if menu.category == "Plat" %>
+                <%= menu.title %>
+                <%= menu.price_menu %>€<br>
+                <%= menu.content %><br>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h4>Déssert</h4>
+        <% @menus.each do |menu| %>
+            <% if menu.category == "Déssert" %>
+                <%= menu.title %>
+                <%= menu.price_menu %>€<br>
+                <%= menu.content %><br>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- carrousel -->
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <% if @photos %>
+              <% @photos.each do |photo| %>
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                  </ol>
+              <% end %>
+          <% end %>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <% if @photos %>
+                <% @photos.each do |photo| %>
+                    <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                      <%= image_tag photo.image.url() %>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Précédent</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Suivant</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

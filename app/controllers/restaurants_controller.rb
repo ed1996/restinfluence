@@ -29,6 +29,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @photos = @restaurant.photos
+    @menus = @restaurant.menu
   end
 
   def edit
