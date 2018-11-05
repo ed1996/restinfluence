@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181105180652) do
+ActiveRecord::Schema.define(version: 20181105233309) do
 
   create_table "influencers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20181105180652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "listing_name"
+    t.float "latitude", limit: 24
+    t.float "longitude", limit: 24
     t.index ["restorer_id"], name: "index_restaurants_on_restorer_id"
   end
 

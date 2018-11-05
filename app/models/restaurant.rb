@@ -8,4 +8,7 @@ class Restaurant < ApplicationRecord
   validates :address, presence: true
   validates :reduction, presence: true, numericality: {only_integer: true, greater_than: 5}
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 5}
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
