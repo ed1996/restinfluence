@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181105233309) do
+ActiveRecord::Schema.define(version: 20181106213755) do
 
   create_table "influencers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "email", default: "", null: false
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 20181105233309) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fullname"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_influencers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_influencers_on_reset_password_token", unique: true
   end

@@ -8,4 +8,12 @@ module ApplicationHelper
     end
   end
 
+  def avatar_url_inf(influencer)
+    if influencer.avatar.present?
+      influencer.avatar.url
+    else
+      'default_image.png'
+    end
+  end
+
 end
