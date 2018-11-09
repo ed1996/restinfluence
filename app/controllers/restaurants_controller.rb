@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
 
   before_action :set_restaurant, only: [:show, :edit, :update]
   before_action :authenticate_restorer!, except: [:show]
-  before_action :require_same_restorer, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
 
   def index
