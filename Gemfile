@@ -23,6 +23,10 @@ gem 'paperclip-cloudinary'
 
 gem 'geocoder'
 
+gem 'instagram_api_client'
+
+gem 'instagram'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql as the database for Active Record

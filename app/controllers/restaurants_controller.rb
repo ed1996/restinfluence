@@ -1,8 +1,10 @@
 class RestaurantsController < ApplicationController
+  require "instagram_api_client"
 
   before_action :set_restaurant, only: [:show, :edit, :update]
   before_action :authenticate_restorer!, except: [:show]
   before_action :require_same_restorer, only: [:edit, :update]
+
 
   def index
     @restaurants = current_restorer.restaurants
@@ -30,6 +32,7 @@ class RestaurantsController < ApplicationController
   def show
     @photos = @restaurant.photos
     @menus = @restaurant.menu
+    @instagram = InstagramApi.user.search('snoopdogg')
   end
 
   def edit
