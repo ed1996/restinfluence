@@ -32,7 +32,6 @@ class RestaurantsController < ApplicationController
   def show
     @photos = @restaurant.photos
     @menus = @restaurant.menu
-    @instagram = InstagramApi.user.search('snoopdogg')
   end
 
   def edit
