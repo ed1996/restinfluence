@@ -32,6 +32,7 @@ class RestaurantsController < ApplicationController
   def show
     @photos = @restaurant.photos
     @menus = @restaurant.menu
+    @instagram = InstagramApi.user("1574083").recent_media
   end
 
   def edit
