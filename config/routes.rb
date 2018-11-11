@@ -15,8 +15,11 @@ Rails.application.routes.draw do
   resources :influencers, only: [:show]
 
   resources :restorers, only: [:show]
+
   resources :restaurants do
     resources :menus
+    resources :reservations, only: [:create]
   end
+
   resources :photos
 end
