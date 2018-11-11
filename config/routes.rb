@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
+  get 'your_trips'=>'reservations#your_trips'
+
   resources :influencers, only: [:show]
 
   resources :restorers, only: [:show]

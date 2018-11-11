@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-list">
+      <li class="sidebar-item"><%= link_to "Mes réservations", your_trips_path, class: "sidebar-link active" %></li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Mes réservations</div>
+      <div class="panel-body">
+        <% @trips.order("id DESC").each do |trip| %>
+            <div class="row">
+              <div class="col-md-4">
+                Du <%= trip.start_date.strftime('%d.%m.%y') %>, à <%= trip.time %> pour <%= trip.people %> personnes
+              </div>
+              <div class="col-md-6">
+                <%= link_to restaurant_path(trip.restaurant) do %>
+                    <%= image_tag trip.restaurant.photos[0].image.url(:thumb) if trip.restaurant.photos.length > 0 %>
+                <% end %>
+              </div>
+              <div class="col-md-2">
+                <%= link_to restorer_path(trip.restaurant.restorer) do %>
+                    <%= trip.restaurant.listing_name %>
+                  <%= image_tag avatar_url(trip.restaurant.restorer), class:"img-circle avatar-medium" %>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

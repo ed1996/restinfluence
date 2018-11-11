@@ -1,12 +1,34 @@
 <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
 
-    <%= f.text_field :start_date %>
-    <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"]], id: "time", prompt: "Heure", class:"form-control" %>
-    <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["5","5"]], id: "people", prompt: "Personne", class:"form-control" %>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.text_field :start_date, class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"]], id: "time", prompt: "Heure", class:"form-control" %>
+      </div>
+      <div class="col-md-4">
+        <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["5","5"]], id: "people", prompt: "Personne", class:"form-control" %>
+      </div>
+    </div>
 
     <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
-
-    <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
+<br>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
+      </div>
+    </div>
 
 
 <% end %>
+
+<script>
+  $(function(){
+      $('#reservation_start_date').datepicker({
+          dateFormat: 'dd-mm-yy',
+          monthNames: ['Janvier','février','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Décembre'],
+          dayNamesMin: ['D','L','M','M','J','V','S']
+      });
+  });
+</script>
