@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'your_trips'=>'reservations#your_trips'
+  get 'your_reservation'=>'demands#your_reservation'
 
   resources :influencers, only: [:show]
 
