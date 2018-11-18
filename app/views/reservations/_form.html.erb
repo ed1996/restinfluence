@@ -1,5 +1,5 @@
 
-<% if current_restorer == @restaurant.restorer %>
+<% if current_restorer.influencer? %>
       <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
 
           <div class="row">
