@@ -11,5 +11,23 @@
 
   <div class="col-md-9">
     <h2><%= @restorer.fullname %></h2>
+
+    <h4>Restaurant(s) (<%= @restaurants.length %>)</h4><br>
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag restaurant.photos[0].image.url(:medium) if restaurant.photos.length > 0 %>
+          </div>
+          <div class="panel-body">
+            <%= link_to restaurant.listing_name, restaurant %>
+          </div>
+        </div>
+      </div>
+
+
+      <% end %>
+    </div>
   </div>
 </div>

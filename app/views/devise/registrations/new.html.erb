@@ -19,6 +19,12 @@
         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Créer un mot de passe" %>
       </div>
 
+        <div class="form-group">
+          Vous êtes un influenceur ?
+          <br />
+          <%= f.check_box :influencer %>
+        </div>
+
       <div class="actions">
         <%= f.submit "Inscription", class: "btn btn-primary" %>
       </div>

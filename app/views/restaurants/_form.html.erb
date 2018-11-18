@@ -1,3 +1,6 @@
+<% if current_restorer.influencer? %>
+    <h2>Vous êtes un influenceur vous ne pouvez pas ajouter de restaurant</h2>
+    <% else %>
 <div class="panel panel-default">
   <div class="panel-heading">
     Développer la notoriété de votre restaurant
@@ -74,3 +77,4 @@
     </div>
   </div>
 </div>
+<% end %>

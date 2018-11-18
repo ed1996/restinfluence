@@ -10,4 +10,5 @@ class Restorer < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :restaurants
+  has_many :reservations
 end

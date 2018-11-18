@@ -20,9 +20,9 @@
                       <% end %>
                     </div>
                     <div class="col-md-2">
-                      <%= link_to influencer_path(reservation.influencer) do %>
-                          <%= reservation.influencer.fullname %>
-                          <%= image_tag avatar_url(reservation.influencer), class:"img-circle avatar-medium" %>
+                      <%= link_to influencer_path(reservation.restorer) do %>
+                          <%= reservation.restorer.fullname %>
+                          <%= image_tag avatar_url(reservation.restorer), class:"img-circle avatar-medium" %>
                           <% end %>
                     </div>
                   </div>

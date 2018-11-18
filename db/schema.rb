@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181111174505) do
+ActiveRecord::Schema.define(version: 20181117002812) do
 
   create_table "influencers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "email", default: "", null: false
@@ -52,15 +52,15 @@ ActiveRecord::Schema.define(version: 20181111174505) do
   end
 
   create_table "reservations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
-    t.bigint "influencer_id"
     t.bigint "restaurant_id"
+    t.bigint "restorer_id"
     t.datetime "start_date"
     t.string "time"
     t.string "people"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["influencer_id"], name: "index_reservations_on_influencer_id"
     t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+    t.index ["restorer_id"], name: "index_reservations_on_restorer_id"
   end
 
   create_table "restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
@@ -92,13 +92,14 @@ ActiveRecord::Schema.define(version: 20181111174505) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.boolean "influencer"
     t.index ["email"], name: "index_restorers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_restorers_on_reset_password_token", unique: true
   end
 
   add_foreign_key "menus", "restaurants"
   add_foreign_key "photos", "restaurants"
-  add_foreign_key "reservations", "influencers"
   add_foreign_key "reservations", "restaurants"
+  add_foreign_key "reservations", "restorers"
   add_foreign_key "restaurants", "restorers"
 end

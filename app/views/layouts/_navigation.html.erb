@@ -20,10 +20,11 @@
           <% end %>
         </li>
 
-        <% if (!restorer_signed_in?)  %>
+
+        <% if (!restorer_signed_in?) %>
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Restaurateur<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion<span class="caret"></span></a>
               <ul class="dropdown-menu">
 
                 <li><%= link_to 'Inscription', new_restorer_registration_path %></li>
@@ -31,8 +32,19 @@
               </ul>
             </li>
 
-        <% else %>
+        <% elsif current_restorer.influencer? %>
 
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag avatar_url(current_restorer), class:"img-circle avatar-small" %> <%= current_restorer.fullname %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Mes demandes', your_trips_path %></li>
+                <li><%= link_to 'Modifier mon profil', edit_restorer_registration_path %></li>
+
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Deconnexion', destroy_restorer_session_path, method: :delete %></li>
+              </ul>
+            </li>
+        <% else %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag avatar_url(current_restorer), class:"img-circle avatar-small" %> <%= current_restorer.fullname %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -44,6 +56,8 @@
                 <li><%= link_to 'Deconnexion', destroy_restorer_session_path, method: :delete %></li>
               </ul>
             </li>
+
+
         <% end %>
 
 

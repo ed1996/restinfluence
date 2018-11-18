@@ -1,26 +1,29 @@
-<%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
 
-    <div class="row">
-      <div class="col-md-4">
-        <%= f.text_field :start_date, class:"form-control" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"]], id: "time", prompt: "Heure", class:"form-control" %>
-      </div>
-      <div class="col-md-4">
-        <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["5","5"]], id: "people", prompt: "Personne", class:"form-control" %>
-      </div>
-    </div>
+<% if current_restorer == @restaurant.restorer %>
+      <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
 
-    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
-<br>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
-      </div>
-    </div>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.text_field :start_date, class:"form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"],["15h","15h"],["15h30","15h30"]], id: "time", prompt: "Heure", class:"form-control" %>
+            </div>
+            <div class="col-md-4">
+              <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]], id: "people", prompt: "Personne", class:"form-control" %>
+            </div>
+          </div>
+
+          <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+      <br>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
+            </div>
+          </div>
 
 
+      <% end %>
 <% end %>
 
 <script>

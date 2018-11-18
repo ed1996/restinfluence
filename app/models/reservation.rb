@@ -1,4 +1,4 @@
 class Reservation < ApplicationRecord
-  belongs_to :influencer
   belongs_to :restaurant
+  belongs_to :restorer
 end
