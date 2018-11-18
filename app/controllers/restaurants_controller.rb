@@ -58,7 +58,7 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:restaurant_type, :summary, :address, :reduction, :price, :active)
+    params.require(:restaurant).permit(:restaurant_type, :summary, :address, :reduction, :price, :active, :listing_name)
   end
 
   def require_same_user

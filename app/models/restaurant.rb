@@ -5,6 +5,7 @@ class Restaurant < ApplicationRecord
   has_many :reservations
 
   validates :restaurant_type, presence: true
+  validates :listing_name, presence: true
   validates :summary, presence: true, length: {maximum: 600}
   validates :address, presence: true
   validates :reduction, presence: true, numericality: {only_integer: true, greater_than: 5}
