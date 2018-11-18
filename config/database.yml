@@ -52,3 +52,4 @@ production:
   database: restinfluence_production
   username: restinfluence
   password: <%= ENV['RESTINFLUENCE_DATABASE_PASSWORD'] %>
+
