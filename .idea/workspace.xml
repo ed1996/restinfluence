@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="89b3bea1-5dba-4e68-b905-9900906d2e66" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/cloudinary.yml" afterPath="$PROJECT_DIR$/config/cloudinary.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9">
               <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cloudinary.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/cloudinary.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -117,7 +127,6 @@
         <option value="$PROJECT_DIR$/app/views/photos/destroy.js.erb" />
         <option value="$PROJECT_DIR$/app/views/photos/_list.html.erb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/config/cloudinary.yml" />
         <option value="$PROJECT_DIR$/app/views/restaurants/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/menus_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
@@ -153,6 +162,7 @@
         <option value="$PROJECT_DIR$/app/controllers/restorers_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/restorers/show.html.erb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
+        <option value="$PROJECT_DIR$/config/cloudinary.yml" />
       </list>
     </option>
   </component>
@@ -504,12 +514,12 @@
       <workItem from="1542412617538" duration="2825000" />
       <workItem from="1542456168976" duration="376000" />
       <workItem from="1542458079683" duration="1194000" />
-      <workItem from="1542459490498" duration="2908000" />
+      <workItem from="1542459490498" duration="4172000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90305000" />
+    <option name="totallyTimeSpent" value="91569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="976" extended-state="6" />
@@ -554,14 +564,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -921,6 +923,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9">
           <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/cloudinary.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding />
         </state>
       </provider>

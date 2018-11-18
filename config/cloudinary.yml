@@ -1,6 +1,6 @@
 production:
 
-cloud_name: "hwutpyceg"
+cloud_name: "heblnzbdn"
 
 api_key:<%= ENV["CLOUDINARY_API_KEY"] %>
 
