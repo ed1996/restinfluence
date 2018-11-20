@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'your_trips'=>'reservations#your_trips'
   get 'your_reservation'=>'demands#your_reservation'
+  get '/search'=>'pages#search'
 
   resources :influencers, only: [:show]
 

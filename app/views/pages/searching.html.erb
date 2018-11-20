@@ -1,0 +1,51 @@
+<div id="wrapper">
+  <div id="sidebar">
+    <div id="widget">
+
+    </div>
+  </div>
+  <div id="article">
+    <div class="row">
+      <div class="col-md-12">
+        <%= search_form_for @search, url: search_path do |f| %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= text_field_tag :search, params[:search], placeholder: "Ville ?", class:"form-control" %>
+              </div>
+              <div class="col-md-6">
+                <%= select :restaurant_type, params[:restaurant_type], [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
+                                                                        ["Turc","Turc"]], prompt: "A sélectionner...", class:"form-control" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <%= f.submit "Rechercher", class:"btn btn-primary" %>
+            </div>
+        <% end %>
+
+        <hr>
+
+
+        <div class="row">
+          <% if @arrRestaurants.empty? %>
+              Aucuns restaurants actuellement enregistré
+          <% else %>
+              <% @arrRestaurants.each do |restaurant| %>
+                  <div class="col-md-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading preview">
+                        <%= image_tag restaurant.photos[0].image.url(:medium) if restaurant.photos.length > 0 %>
+                      </div>
+                      <div class="panel-body">
+                        <%= link_to restaurant.listing_name, restaurant_path(restaurant) %>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,52 @@
-<h2>Bienvenue sur la premiere page</h2>
+<div class="row">
+  <div class="col-md-8">
+    <div class="text-center">
+      <h1>réservez dans les meilleurs restaurants et bénéficiez des réductions !</h1>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Inscription', new_restorer_registration_path %>
-<%= link_to 'Connexion', new_restorer_session_path %>
-<%= link_to 'Deconnexion', destroy_restorer_session_path, method: :delete %>
+<br>
+
+<%= form_tag search_path, method: :get do %>
+<div class="row">
+  <div class="col-md-5">
+    <%= text_field_tag :search, params[:search], placeholder: "Ville ?", class:"form-control" %>
+  </div>
+  <div class="col-md-5">
+    <%= select :restaurant_type, params[:restaurant_type], [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
+                                  ["Turc","Turc"]], prompt: "A sélectionner...", class:"form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= submit_tag "rechercher", class:"btn btn-primary" %>
+  </div>
+</div>
+<% end %>
+
+<br>
+<hr>
+<br>
+
+<div class="row">
+  <div class="col-md-4">
+    <h4>Restaurants</h4>
+  </div>
+</div>
+
+
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+              <%= image_tag restaurant.photos[0].image.url(:medium) if restaurant.photos.length > 0 %>
+            </div>
+            <div class="panel-body">
+              <%= link_to restaurant.listing_name, restaurant_path(restaurant) %>
+            </div>
+          </div>
+        </div>
+
+
+    <% end %>
+  </div>
