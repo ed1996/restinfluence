@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @restaurants = Restaurant.order("RAND()")
+
   end
 
   def search
