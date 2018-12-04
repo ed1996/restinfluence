@@ -24,7 +24,7 @@
       </div>
     </div>
     <div id="chat">
-      <%= render 'messages' %>
+      <%= render @messages, locals: {conversation: @conversation} %>
     </div>
   </div>
 </div>
