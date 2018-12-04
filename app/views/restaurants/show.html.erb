@@ -46,8 +46,7 @@
 
 
 
-    <%= @instagram %>
-
+  <% if restorer_signed_in? && current_restorer.influencer? == false %>
     <div class="row">
       <div class="col-md-12">
         <h2>Ajout de mon menu</h2>
@@ -71,6 +70,7 @@
         <% end %>
       </div>
     </div>
+      <% end %>
 
     <div class="row">
       <div class="col-md-12 text-center">

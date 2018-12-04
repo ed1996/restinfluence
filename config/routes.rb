@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'your_trips'=>'reservations#your_trips'
   get 'your_reservation'=>'demands#your_reservation'
   get '/search'=>'pages#search'
+  get '/searching'=>'pages#searching'
 
   resources :influencers, only: [:show]
 
@@ -26,4 +27,9 @@ Rails.application.routes.draw do
   end
 
   resources :photos
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
 end

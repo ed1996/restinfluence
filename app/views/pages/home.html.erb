@@ -14,8 +14,8 @@
     <%= text_field_tag :search, params[:search], placeholder: "Ville ?", class:"form-control" %>
   </div>
   <div class="col-md-5">
-    <%= select :restaurant_type, params[:restaurant_type], [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
-                                  ["Turc","Turc"]], prompt: "A sélectionner...", class:"form-control" %>
+    <%= select :restaurant_type, params[:search], [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
+                                  ["Turc","Turc"]], class:"form-control" %>
   </div>
   <div class="col-md-2">
     <%= submit_tag "rechercher", class:"btn btn-primary" %>

@@ -1,7 +1,40 @@
 <div id="wrapper">
   <div id="sidebar">
     <div id="widget">
+      <script>
+          function initMap() {
+              <% if @arrRestaurants.length > 0 %>
+                // The location of Uluru
+                var uluru = {lat: <%= @arrRestaurants[0].latitude %>, lng: <%= @arrRestaurants[0].longitude %>};
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('widget'), {zoom: 15, center: uluru});
 
+              <% else %>
+                // The location of Uluru
+                var uluru = {lat: 48.866667, lng: 2.333333};
+                // The map, centered at Uluru
+                var map = new google.maps.Map(
+                    document.getElementById('widget'), {zoom: 4, center: uluru});
+
+              <% end %>
+
+              <% @arrRestaurants.each do |restaurant| %>
+              // The marker, positioned at Uluru
+              var marker = new google.maps.Marker({position: {lat: <%= restaurant.latitude %>, lng: <%= restaurant.longitude %>}, map: map, title: "<%= restaurant.listing_name %>"});
+              <% end %>
+          }
+      </script>
+
+      <script>
+        $(document).ready(function(){
+            $("#sidebar").stick_in_parent({offset_top: 20})
+        });
+      </script>
+
+      <script async defer
+              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhUhbx7WCVnx7MMPbfS_uwbqYD-8iFplI&callback=initMap">
+      </script>
     </div>
   </div>
   <div id="article">
@@ -14,7 +47,7 @@
               </div>
               <div class="col-md-6">
                 <%= f.select :restaurant_type_eq, [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
-                                                                        ["Turc","Turc"]], prompt: "A sélectionner...", class:"form-control" %>
+                                                                        ["Turc","Turc"]], class:"form-control" %>
               </div>
             </div>
 
