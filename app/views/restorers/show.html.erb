@@ -11,7 +11,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">Vérification</div>
       <div class="panel-body">
-        Email: <%= @restorer.email %>
+        <% if @restorer.confirmed_at %>
+            Email confirmé
+        <% else %>
+            Email non confirmé
+        <% end %>
       </div>
     </div>
   </div>
