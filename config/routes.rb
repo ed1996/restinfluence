@@ -28,6 +28,8 @@ Rails.application.routes.draw do
     resources :reservations, only: [:create]
   end
 
+  resources :subscribers, only: [:new, :update, :index]
+
   resources :photos
 
   resources :conversations, only: [:index, :create] do
