@@ -1,0 +1,4 @@
+<p>Bonjour <%= @restorer.fullname %></p>
+
+<p>Votre restaurant (<%= @restaurant.listing_name %>) a une nouvelle réservation le
+  <%= @reservation.start_date.strftime('%d.%m.%y') %> à <%= @reservation.time %> pour  <%= @reservation.people %>.</p>
