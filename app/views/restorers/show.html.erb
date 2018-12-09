@@ -9,12 +9,23 @@
     <% end %>
 
     <div class="panel panel-default">
-      <div class="panel-heading">Vérification</div>
+      <div class="panel-heading">Vérification email</div>
       <div class="panel-body">
         <% if @restorer.confirmed_at %>
             Email confirmé
         <% else %>
             Email non confirmé
+        <% end %>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">Vérification compte instagram</div>
+      <div class="panel-body">
+        <% if @restorer.verifyaccount %>
+            Compte instagram confirmé
+        <% else %>
+            Compte instagram non confirmé
         <% end %>
       </div>
     </div>

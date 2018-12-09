@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   require "instagram_api_client"
 
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_restorer!, except: [:show]
   before_action :require_same_user, only: [:edit, :update]
 
@@ -31,7 +31,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @photos = @restaurant.photos
-    @menus = @restaurant.menu
+    @menus = @restaurant.menus
    # @instagram = InstagramApi.user("1330295863").show.data.counts.followed_by
   end
 
@@ -52,13 +52,18 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    @restaurant.destroy
+    redirect_to restaurants_path
+  end
+
   private
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:restaurant_type, :summary, :address, :reduction, :price, :active, :listing_name)
+    params.require(:restaurant).permit(:restaurant_type, :summary, :address, :reduction, :price, :active, :listing_name, :phone, :linkweb)
   end
 
   def require_same_user

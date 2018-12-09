@@ -2,15 +2,15 @@ class MenusController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @menu = @restaurant.menu.create(menu_params)
+    @menu = @restaurant.menus.create(menu_params)
     redirect_to restaurant_path(@restaurant)
   end
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
-    @menu = @restaurant.menu.find(params[:id])
+    @menu = Menu.find(params[:id])
+    restaurant = @menu.restaurant
     @menu.destroy
-    redirect_to restaurant_path(@restaurant)
+    redirect_to restaurant
   end
 
   private

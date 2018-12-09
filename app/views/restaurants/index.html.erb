@@ -13,11 +13,14 @@
           <div class="col-md-2">
             <%= image_tag restaurant.photos[0].image.url(:thumb) if restaurant.photos.length > 0 %>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-4">
             <h4><%= restaurant.listing_name %></h4>
           </div>
           <div class="col-md-3 right">
             <%= link_to "Mettre à jour", edit_restaurant_path(restaurant), class:"btn btn-primary" %>
+          </div>
+          <div class="col-md-3 right">
+            <%= link_to "Supprimer", restaurant_path(restaurant), method: :delete, data: {confirm: "êtes-vous sûr ?"}, class:"btn btn-warning" %>
           </div>
         </div>
             <hr>

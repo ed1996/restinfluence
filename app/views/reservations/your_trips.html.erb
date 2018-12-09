@@ -13,10 +13,14 @@
               <div class="col-md-4">
                 Du <%= trip.start_date.strftime('%d.%m.%y') %>, à <%= trip.time %> pour <%= trip.people %> personnes
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <%= link_to restaurant_path(trip.restaurant) do %>
                     <%= image_tag trip.restaurant.photos[0].image.url(:thumb) if trip.restaurant.photos.length > 0 %>
                 <% end %>
+              </div>
+              <div class="col-md-2">
+                <p>Contact :</p>
+                <%= trip.restaurant.phone %>
               </div>
               <div class="col-md-2">
                 <%= link_to restorer_path(trip.restaurant.restorer) do %>

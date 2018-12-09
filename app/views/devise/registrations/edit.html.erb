@@ -39,6 +39,13 @@
                 </div>
               </div>
 
+              <% if current_restorer.influencer? %>
+              <div class="form-group">
+                URL de votre compte instagram :
+                <%= f.text_field :linkinsta, autofocus: true, class: "form-control", placeholder: "Lien de votre compte instagram" %>
+              </div>
+                  <% end %>
+
               <div class="form-group">
                 <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Nouveau mot de passe (si vous souhaitez changer de mot de passe)" %>
               </div>
