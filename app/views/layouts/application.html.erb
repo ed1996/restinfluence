@@ -7,15 +7,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Ajout de ces 2 lignes pour le datepicker -->
+    <link rel=stylesheet href=https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css>
+    <script src=https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   </head>
 
   <body>
+
   <%= render 'layouts/navigation' %>
 
 
-<br><br><br><br><br>
-  <div class="container"><%= yield %></div>
+<!--<br><br><br><br><br>-->
+  <div class="contenu">
+  <%= yield %>
+  </div>
+
+  <%= render 'layouts/bottomnav' %>
 
   <%= render 'shared/message' %>
   </body>

@@ -16,6 +16,10 @@
 //= require rails-timeago-all
 //= require toastr
 //= require rails-ujs
+//= require chosen-jquery
+//= require jquery.slick
+//= require magnific-popup
+//= require custom.js
 //= require_tree .
 
 

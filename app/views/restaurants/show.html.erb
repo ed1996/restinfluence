@@ -1,3 +1,4 @@
+<div class="container">
 <div class="panel panel-default">
   <div class="panel-body">
 
@@ -151,35 +152,289 @@
 
     <br>
 
-    <!-- google maps -->
-    <div class="row">
-      <div class="col-md-12">
-        <div id="map"></div>
 
-        <style>
-          /* Set the size of the div element that contains the map */
-          #map {
-            height: 400px;  /* The height is 400 pixels */
-            width: 100%;  /* The width is the width of the web page */
-          }
-        </style>
 
-        <script>
-              function initMap() {
-        // The location of Uluru
-        var uluru = {lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 15, center: uluru});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: uluru, map: map});
-      }
-          </script>
-          <script async defer
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhUhbx7WCVnx7MMPbfS_uwbqYD-8iFplI&callback=initMap">
-          </script>
+  </div>
+</div>
+</div>
+
+<!-- Slider
+================================================== -->
+<div class="listing-slider mfp-gallery-container margin-bottom-0">
+  <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
+  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
+  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
+  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
+  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
+  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+  <div class="row sticky-wrapper">
+    <div class="col-lg-8 col-md-8 padding-right-30">
+
+      <!-- Titlebar -->
+      <div id="titlebar" class="listing-titlebar">
+        <div class="listing-titlebar-title">
+          <h2><%= @restaurant.listing_name %> <span class="listing-tag"><%= @restaurant.restaurant_type %></span></h2>
+          <span>
+						<a href="#listing-location" class="listing-address">
+							<i class="fa fa-map-marker"></i>
+              <%= @restaurant.address %>
+						</a>
+					</span>
+        </div>
       </div>
+
+      <!-- Listing Nav -->
+      <div id="listing-nav" class="listing-nav-container">
+        <ul class="listing-nav">
+          <li><a href="#listing-overview" class="active">Overview</a></li>
+          <li><a href="#listing-pricing-list">Pricing</a></li>
+          <li><a href="#listing-location">Location</a></li>
+          <li><a href="#listing-reviews">Reviews</a></li>
+          <li><a href="#add-review">Add Review</a></li>
+        </ul>
+      </div>
+
+      <!-- Overview -->
+      <div id="listing-overview" class="listing-section">
+
+        <!-- Description -->
+
+        <p><%= @restaurant.summary %></p>
+
+        <!-- Amenities -->
+        <h3 class="listing-desc-headline">Amenities</h3>
+        <ul class="listing-features checkboxes margin-top-0">
+          <li>Elevator in building</li>
+          <li>Friendly workspace</li>
+          <li>Instant Book</li>
+          <li>Wireless Internet</li>
+          <li>Free parking on premises</li>
+          <li>Free parking on street</li>
+        </ul>
+      </div>
+
+
+      <!-- Food Menu -->
+      <div id="listing-pricing-list" class="listing-section">
+        <h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+
+        <div class="show-more">
+          <div class="pricing-list-container">
+
+            <!-- Food List -->
+            <h4>Burgers</h4>
+            <ul>
+              <li>
+                <h5>Classic Burger</h5>
+                <p>Beef, salad, mayonnaise, spicey relish, cheese</p>
+                <span>$6</span>
+              </li>
+              <li>
+                <h5>Cheddar Burger</h5>
+                <p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
+                <span>$6</span>
+              </li>
+              <li>
+                <h5>Veggie Burger</h5>
+                <p>Panko crumbed and fried, grilled peppers and mushroom</p>
+                <span>$6</span>
+              </li>
+              <li>
+                <h5>Chicken Burger</h5>
+                <p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
+                <span>$6</span>
+              </li>
+            </ul>
+
+            <!-- Food List -->
+            <h4>Drinks</h4>
+            <ul>
+              <li>
+                <h5>Frozen Shake</h5>
+                <span>$4</span>
+              </li>
+              <li>
+                <h5>Orange Juice</h5>
+                <span>$4</span>
+              </li>
+              <li>
+                <h5>Beer</h5>
+                <span>$4</span>
+              </li>
+              <li>
+                <h5>Water</h5>
+                <span>Free</span>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        <a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
+      </div>
+      <!-- Food Menu / End -->
+
+
+      <!-- Location -->
+      <div id="listing-location" class="listing-section">
+        <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
+
+        <div id="singleListingMap-container">
+          <!-- google maps -->
+          <div class="row">
+            <div class="col-md-12">
+              <div id="map"></div>
+
+              <style>
+                /* Set the size of the div element that contains the map */
+                #map {
+                  height: 400px;  /* The height is 400 pixels */
+                  width: 100%;  /* The width is the width of the web page */
+                }
+              </style>
+
+              <script>
+                  function initMap() {
+                      // The location of Uluru
+                      var uluru = {lat: <%= @restaurant.latitude %>, lng: <%= @restaurant.longitude %>};
+                      // The map, centered at Uluru
+                      var map = new google.maps.Map(
+                          document.getElementById('map'), {zoom: 15, center: uluru});
+                      // The marker, positioned at Uluru
+                      var marker = new google.maps.Marker({position: uluru, map: map});
+                  }
+              </script>
+              <script async defer
+                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhUhbx7WCVnx7MMPbfS_uwbqYD-8iFplI&callback=initMap">
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
+
+
+    <!-- Sidebar
+    ================================================== -->
+    <div class="col-lg-4 col-md-4 margin-top-75 sticky">
+
+
+      <!-- Verified Badge -->
+      <div class="verified-badge with-tip" data-tip-content="Listing has been verified and belongs the business owner or manager.">
+        <i class="sl sl-icon-check"></i> Verified Listing
+      </div>
+
+      <!-- Book Now -->
+      <div class="boxed-widget booking-widget margin-top-35">
+        <h3><i class="fa fa-calendar-check-o "></i> Réserver une table</h3>
+        <div class="row with-forms  margin-top-0">
+          <% if restorer_signed_in? && current_restorer.influencer? %>
+              <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
+
+          <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
+          <div class="col-lg-6 col-md-12">
+            <%= f.text_field :start_date, class:"form-control" %>
+          </div>
+
+          <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
+          <div class="col-lg-6 col-md-12">
+            <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"],["15h","15h"],["15h30","15h30"]], id: "time", prompt: "Heure", class:"form-control" %>
+          </div>
+
+          <!-- Panel Dropdown -->
+          <div class="col-lg-12">
+            <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]], id: "people", prompt: "Personne", class:"form-control" %>
+          </div>
+          <!-- Panel Dropdown / End -->
+                  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+        </div>
+
+        <!-- progress button animation handled via custom.js -->
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
+                    </div>
+                  </div>
+      </div>
+
+              <% end %>
+          <% end %>
+
+          <script>
+              $(function(){
+                  $('#reservation_start_date').datepicker({
+                      dateFormat: 'dd-mm-yy',
+                      monthNames: ['Janvier','février','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Décembre'],
+                      dayNamesMin: ['D','L','M','M','J','V','S']
+                  });
+              });
+          </script>
+      <!-- Book Now / End -->
+
+
+      <!-- Opening Hours -->
+      <div class="boxed-widget opening-hours margin-top-35">
+        <div class="listing-badge now-open">Now Open</div>
+        <h3><i class="sl sl-icon-clock"></i> Opening Hours</h3>
+        <ul>
+          <li>Monday <span>9 AM - 5 PM</span></li>
+          <li>Tuesday <span>9 AM - 5 PM</span></li>
+          <li>Wednesday <span>9 AM - 5 PM</span></li>
+          <li>Thursday <span>9 AM - 5 PM</span></li>
+          <li>Friday <span>9 AM - 5 PM</span></li>
+          <li>Saturday <span>9 AM - 3 PM</span></li>
+          <li>Sunday <span>Closed</span></li>
+        </ul>
+      </div>
+      <!-- Opening Hours / End -->
+
+
+      <!-- Contact -->
+      <div class="boxed-widget margin-top-35">
+        <div class="hosted-by-title">
+          <h4><span>Hosted by</span> <a href="pages-user-profile.html"><%= @restaurant.restorer.fullname %></a></h4>
+          <%= image_tag avatar_url(@restaurant.restorer), class:"hosted-by-avatar" %>
+        </div>
+        <ul class="listing-details-sidebar">
+          <li><i class="sl sl-icon-phone"></i><%= @restaurant.phone %></li>
+          <!-- <li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li> -->
+          <li><i class="fa fa-envelope-o"></i> <a href="#"><%= @restaurant.restorer.email %></a></li>
+          <li><%= @restaurant.linkweb %></li>
+        </ul>
+
+        <!--
+        <ul class="listing-details-sidebar social-profiles">
+          <li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+          <li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li>
+        </ul>-->
+
+        <!-- Reply to review popup -->
+        <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+          <div class="small-dialog-header">
+            <h3>Send Message</h3>
+          </div>
+          <div class="message-reply margin-top-0">
+            <textarea cols="40" rows="3" placeholder="Your message to Tom"></textarea>
+            <button class="button">Send Message</button>
+          </div>
+        </div>
+
+
+        <%= link_to "Envoyer un message", restorer_path(@restaurant.restorer) %>
+      </div>
+      <!-- Contact / End-->
+
+    </div>
+    <!-- Sidebar / End -->
 
   </div>
 </div>

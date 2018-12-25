@@ -15,6 +15,10 @@
 
 
         <li>
+          <%= link_to 'Recherche', root_path %>
+        </li>
+
+        <li>
           <%= link_to new_restaurant_path do %>
               <i class="fa fa-home fa-lg"></i>Mon/mes restaurant(s)
           <% end %>
@@ -95,6 +99,14 @@
                   </li>
 
               <% end %>
+
+        <li>
+          <%= link_to 'FAQ', faq_path %>
+        </li>
+
+        <li>
+          <%= link_to 'Contact', new_contact_path %>
+        </li>
 
 
 

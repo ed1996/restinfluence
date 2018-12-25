@@ -38,4 +38,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
+  get '/faq' => 'pages#faq'
+
+  resources :contacts, only: [:new, :create]
+
 end
