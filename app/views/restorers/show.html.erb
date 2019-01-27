@@ -53,3 +53,200 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Titlebar
+================================================== -->
+<div id="titlebar" class="gradient">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="user-profile-titlebar">
+          <div class="user-profile-avatar"><%= image_tag avatar_url(@restorer) %></div>
+          <div class="user-profile-name">
+            <h2><%= @restorer.fullname %></h2>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+  <div class="row sticky-wrapper">
+
+
+    <!-- Sidebar
+    ================================================== -->
+    <div class="col-lg-4 col-md-4 margin-top-0">
+
+      <% if @restorer.confirmed_at %>
+          <!-- Verification compte mail -->
+          <div class="verified-badge with-tip" data-tip-content="Account has been verified and belongs to the person or organization represented.">
+            <i class="sl sl-icon-user-following"></i> Email confirmé
+          </div>
+      <% else %>
+          <div class="not-verified-badge with-tip" data-tip-content="Account has been verified and belongs to the person or organization represented.">
+            <i class="sl sl-icon-user-following"></i> Email non confirmé
+          </div>
+      <% end %>
+
+      <br>
+
+      <% if @restorer.influencer %>
+          <% if @restorer.verifyaccount %>
+            <!-- Verification compte instagram -->
+            <div class="verified-badge with-tip" data-tip-content="Account has been verified and belongs to the person or organization represented.">
+              <i class="sl sl-icon-user-following"></i> Compte instagram confirmé
+            </div>
+          <% else %>
+            <div class="not-verified-badge with-tip" data-tip-content="Account has been verified and belongs to the person or organization represented.">
+              <i class="sl sl-icon-user-following"></i> Compte instagram non confirmé
+            </div>
+          <% end %>
+      <% end %>
+
+      <!-- Contact -->
+      <% if @restorer.influencer %>
+
+          <div class="boxed-widget margin-top-30 margin-bottom-50">
+            <h3>Contact</h3>
+
+            <ul class="listing-details-sidebar">
+              <!--<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
+              <li><i class="fa fa-envelope-o"></i> <a href="#">tom@example.com</a></li>-->
+              <li><%= image_tag("opened-email-envelope.png", :alt => "Enveloppe icon") %> <%= @restorer.email %></li>
+            </ul>
+
+            <ul class="listing-details-sidebar social-profiles">
+              <!--<li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+              <li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
+              <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
+              <li><%= image_tag("instagram.png", :alt => "instagram icon") %> <%= link_to "Compte instagram", @restorer.linkinsta %></li>
+            </ul>
+
+            <!-- Reply to review popup -->
+            <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+              <div class="small-dialog-header">
+                <h3>Send Message</h3>
+              </div>
+              <div class="message-reply margin-top-0">
+                <textarea cols="40" rows="3" placeholder="Your message to Tom"></textarea>
+                <button class="button">Send Message</button>
+              </div>
+            </div>
+      <% else %>
+          <div class="boxed-widget margin-top-30 margin-bottom-50">
+            <h3>Contact</h3>
+
+            <ul class="listing-details-sidebar">
+              <!--<li><i class="sl sl-icon-phone"></i> (123) 123-456</li>
+              <li><i class="fa fa-envelope-o"></i> <a href="#">tom@example.com</a></li>-->
+              <li><%= image_tag("opened-email-envelope.png", :alt => "Enveloppe icon") %> <%= @restorer.email %></li>
+            </ul>
+
+            <ul class="listing-details-sidebar social-profiles">
+              <li></li>
+              <!-- <li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+              <li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> Twitter</a></li>
+              <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
+            </ul>
+
+            <!-- Reply to review popup -->
+            <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+              <div class="small-dialog-header">
+                <h3>Send Message</h3>
+              </div>
+              <div class="message-reply margin-top-0">
+                <textarea cols="40" rows="3" placeholder="Your message to Tom"></textarea>
+                <button class="button">Send Message</button>
+              </div>
+            </div>
+
+
+      <% end %>
+
+            <a href="#small-dialog" class="send-message-to-owner button popup-with-zoom-anim"><i class="sl sl-icon-envelope-open"></i> Send Message</a>
+            <% if current_restorer != @restorer %>
+                <div class="row-space-2">
+                  <%= link_to "Envoyer un message", conversations_path(sender_id: current_restorer.id, recipient_id: @restorer.id), method: 'post', class:"btn btn-primary wide" %>
+                </div>
+            <% end %>
+          </div>
+      <!-- Contact / End-->
+
+    </div>
+    <!-- Sidebar / End -->
+
+
+    <!-- Content
+    ================================================== -->
+    <div class="col-lg-8 col-md-8 padding-left-30">
+
+      <h3 class="margin-top-0 margin-bottom-40">Restaurant(s)</h3>
+
+      <!-- Listings Container -->
+      <div class="row">
+
+        <% @restaurants.each do |restaurant| %>
+            <!-- Listing Item -->
+            <div class="col-lg-12 col-md-12">
+              <div class="listing-item-container list-layout">
+                <div class="listing-item">
+
+                  <!-- Image -->
+                  <div class="listing-item-image">
+                    <%= image_tag restaurant.photos[0].image.url(:medium) if restaurant.photos.length > 0 %>
+                    <span class="tag"><%= restaurant.restaurant_type %></span>
+                  </div>
+
+                  <!-- Content -->
+                  <div class="listing-item-content">
+                    <div class="listing-badge now-open">Réduction</div>
+
+                    <div class="listing-item-inner">
+                      <h3><%= restaurant.listing_name %></h3>
+                      <span><%= restaurant.address %></span>
+                    </div>
+
+                    <!--<span class="like-icon"></span>-->
+                    <div class="reduction">
+                      <h4>- <%= restaurant.reduction %> %</h4>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Listing Item / End -->
+        <% end %>
+
+      </div>
+      <!-- Listings Container / End -->
+
+
+
+
+
+    </div>
+
+  </div>
+</div>
+</div>

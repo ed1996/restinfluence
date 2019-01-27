@@ -40,6 +40,10 @@ Rails.application.routes.draw do
 
   get '/faq' => 'pages#faq'
 
+  get '/tarif' => 'pages#tarif'
+
+  get '/politique-de-confidentialite' => 'pages#confidentialite'
+
   resources :contacts, only: [:new, :create]
 
 end

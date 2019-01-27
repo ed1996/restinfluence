@@ -22,7 +22,7 @@
                   <%= select :restaurant_type, params[:search], [["Français","Français"],["Asiatique","Asiatique"],["Libanais","Libanais"],["Italien","Italien"],["Japonais","Japonais"],["Chinois","Chinois"],["Russe","Russe"],["Marocain","Marocain"],["Oriental","Oriental"],["Mexicain","Mexicain"],["Thaïlandais","Thaïlandais"],["Portugais","Portugais"],["Indien","Indien"],
                                                                  ["Turc","Turc"]], class:"chosen-select" %>
                 </div>
-                <button class="button"><%= submit_tag "rechercher", class:"button" %></button>
+                <%= submit_tag "rechercher", class:"button" %>
               </div>
           <% end %>
         </div>
@@ -82,14 +82,14 @@
             <div class="listing-item">
               <%= image_tag restaurant.photos[0].image.url(:medium) if restaurant.photos.length > 0 %>
 
-              <div class="listing-badge now-open">Now Open</div>
+              <div class="listing-badge now-open">Réduction</div>
 
               <div class="listing-item-content">
                 <span class="tag"><%= restaurant.restaurant_type %></span>
                 <h3><%= link_to restaurant.listing_name, restaurant %></h3>
                 <span><%= restaurant.address %></span>
               </div>
-              <span class="like-icon"></span>
+              <!--<span class="like-icon"></span>-->
             </div>
         </div>
             <% end %>
@@ -174,8 +174,8 @@
       <div class="row">
         <div class="col-lg-6 col-sm-8">
           <h2>Augmenter la notoriété de votre restaurant</h2>
-          <p>We’re full-service, local agents who know how to find people and home each together. We use online tools with an unmatched search capability to make you smarter and faster.</p>
-          <a href="listings-list-with-sidebar.html" class="button margin-top-25">Get Started</a>
+          <p>Enregistrez votre restaurant sur la plateforme afin de le rendre visible auprès de tous les influenceurs et d'augmenter votre notoriété sur les réseaux sociaux.</p>
+          <a href="listings-list-with-sidebar.html" class="button margin-top-25">Découvrir</a>
         </div>
       </div>
 

@@ -14,7 +14,7 @@
 
           <!-- Headline -->
           <div class="add-listing-headline">
-            <h3><i class="sl sl-icon-doc"></i> Basic Informations</h3>
+            <h3><i class="sl sl-icon-doc"></i> Informations</h3>
           </div>
 
           <!-- Title -->
@@ -69,7 +69,7 @@
 
           <!-- Headline -->
           <div class="add-listing-headline">
-            <h3><i class="sl sl-icon-picture"></i> Gallery</h3>
+            <h3><i class="sl sl-icon-picture"></i> Galerie</h3>
           </div>
 
           <!-- Dropzone -->
@@ -78,6 +78,8 @@
                   <i class="fa fa-cloud-upload fa-lg"></i> Télécharger vos photos
               <%= file_field_tag "images[]", type: :file, multiple: true %>
                 </span>
+            <br><br>
+            <div id="photos"><%= render 'photos/list' %></div>
           </div>
 
         </div>
@@ -89,7 +91,7 @@
 
           <!-- Headline -->
           <div class="add-listing-headline">
-            <h3><i class="sl sl-icon-docs"></i> Details</h3>
+            <h3><i class="sl sl-icon-docs"></i> Détails</h3>
           </div>
 
           <!-- Description -->
@@ -103,13 +105,13 @@
 
             <!-- Phone -->
             <div class="col-md-6">
-              <h5>Phone</h5>
+              <h5>Téléphone</h5>
               <%= f.text_field :phone, placeholder:"Le numéro de téléphone", class:"form-control" %>
             </div>
 
             <!-- Website -->
             <div class="col-md-6">
-              <h5>Website <span>(optional)</span></h5>
+              <h5>Site web <span>(optionnel)</span></h5>
               <%= f.text_field :linkweb, placeholder:"Lien de votre site internet (optionnel)", class:"form-control" %>
             </div>
 
@@ -122,14 +124,14 @@
 
             <!-- Phone -->
             <div class="col-md-6">
-              <h5>Phone</h5>
+              <h5>Prix moyen</h5>
               <%= f.text_field :price, placeholder:"Prix moyen : ex 45€", class:"form-control" %>
               <div class="input-group-addon">€</div>
             </div>
 
             <!-- Website -->
             <div class="col-md-6">
-              <h5>Website <span>(optional)</span></h5>
+              <h5>Réduction</h5>
               <%= f.text_field :reduction, placeholder:"Réduction proposer : ex 20%", class:"form-control" %>
               <div class="input-group-addon">%</div>
             </div>

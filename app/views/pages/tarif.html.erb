@@ -1,0 +1,71 @@
+<!-- Titlebar
+================================================== -->
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2>Tarif de l'abonnement</h2>
+
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><%= link_to 'Accueil', root_path %></li>
+            <li>Tarif</li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Pricing Tables
+================================================== -->
+
+<!-- Container / Start -->
+<div class="container">
+
+  <!-- Row / Start -->
+  <div class="row">
+
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="pricing-container margin-top-30">
+
+        <!-- Plan #3 -->
+        <div class="plan featured">
+
+          <div class="listing-badge">
+            <span class="featured">Exclusif</span>
+          </div>
+
+          <div class="plan-price">
+            <h3>Exclusivité</h3>
+            <span class="value">65€/mois</span>
+            <span class="period">Enregistrer votre restaurant tout de suite</span>
+          </div>
+          <div class="plan-features">
+            <ul>
+              <li>Enregistrement de votre restaurant</li>
+              <li>Plusieurs restaurants possible</li>
+              <li>Système de réservation mise en place pour influenceurs</li>
+              <li>Notification de réservation par mail</li>
+              <li>24/7 Support</li>
+            </ul>
+            <%= link_to 'Souscrire', new_subscriber_path, class:"button" %>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <!-- Row / End -->
+
+</div>
+<!-- Container / End -->

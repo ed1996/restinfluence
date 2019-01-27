@@ -1,46 +1,11 @@
+<% if restorer_signed_in? %>
+    <% if current_restorer.id != @restaurant.restorer_id %>
+
 <div class="container">
 <div class="panel panel-default">
   <div class="panel-body">
 
-    <!-- photo principale de l'annonce -->
-    <div class="row">
-      <div class="col-md-12">
-        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-3 text-center">
-            <%= image_tag avatar_url(@restaurant.restorer), class:"img-circle avatar-large" %>
-            <br><br>
-            <%= @restaurant.restorer.fullname %>
-          </div>
-          <div class="col-md-9">
-            <h4><%= @restaurant.listing_name %></h4>
-            <p><%= @restaurant.address %></p>
-            <p>Spécialité : <%= @restaurant.restaurant_type %></p>
-            <p>Téléphone : <%= @restaurant.phone %></p>
-            <p><%= @restaurant.linkweb %></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Description -->
-    <div class="row">
-      <div class="col-md-12">
-        <h2>A propos des attentes du restaurant</h2>
-        <p><%= @restaurant.summary %></p>
-      </div>
-    </div>
-
-
-      <div class="row"
+      <div class="row">
         <div class="col-md-12">
           <!-- Formulaire de réservation -->
           <%= render 'reservations/form' %>
@@ -48,126 +13,81 @@
       </div>
 
 
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Ajout de mon menu</h2>
-        <%= form_for([@restaurant, @restaurant.menus.new ]) do |f| %>
-          <label>Catégorie plat</label>
-            <%= f.select :category, [["Entrée","Entrée"],["Plat","Plat"],["Déssert","Déssert"]], id: "category", prompt: "A sélectionner...", class:"form-control" %>
+          <p>pas possible</p>
+          <% else %>
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Ajout de mon menu</h2>
+            <%= form_for([@restaurant, @restaurant.menus.new ]) do |f| %>
+              <label>Catégorie plat</label>
+                <%= f.select :category, [["Entrée","Entrée"],["Plat","Plat"],["Déssert","Déssert"]], id: "category", prompt: "A sélectionner...", class:"form-control" %>
 
-            <label>Nom de votre plat</label>
-            <%= f.text_field :title, placeholder:"Nom de votre plat" %>
+                <label>Nom de votre plat</label>
+                <%= f.text_field :title, placeholder:"Nom de votre plat" %>
 
-            <label>Description du plat</label>
-            <%= f.text_field :content, placeholder:"Description du plat" %>
+                <label>Description du plat</label>
+                <%= f.text_field :content, placeholder:"Description du plat" %>
 
-            <label>Prix du plat</label>
-            <%= f.text_field :price_menu, placeholder:"Prix du plat" %>
+                <label>Prix du plat</label>
+                <%= f.text_field :price_menu, placeholder:"Prix du plat" %>
 
-            <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+                <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
 
-            <%= f.submit %>
+                <%= f.submit %>
 
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h4>Entrée</h4>
-        <% @menus.each do |menu| %>
-            <% if menu.category == "Entrée" %>
-                <%= menu.title %>
-                <%= menu.price_menu %>€<br>
-                <%= menu.content %><br>
-            <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h4>Plat</h4>
-        <% @menus.each do |menu| %>
-            <% if menu.category == "Plat" %>
-                <%= menu.title %>
-                <%= menu.price_menu %>€<br>
-                <%= menu.content %><br>
-            <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h4>Déssert</h4>
-        <% @menus.each do |menu| %>
-            <% if menu.category == "Déssert" %>
-                <%= menu.title %>
-                <%= menu.price_menu %>€<%= link_to "Supprimer", [@restaurant, menu], method: :delete, data: {confirm: "êtes-vous sûr ?"}, class:"btn btn-warning" %><br>
-                <%= menu.content %><br>
-            <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <br><br>
-
-    <!-- carrousel -->
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <% if @photos %>
-              <% @photos.each do |photo| %>
-                  <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                  </ol>
-              <% end %>
-          <% end %>
-
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <% if @photos %>
-                <% @photos.each do |photo| %>
-                    <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                      <%= image_tag photo.image.url() %>
-                    </div>
-                <% end %>
             <% end %>
           </div>
-
-          <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Précédent</span>
-          </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Suivant</span>
-          </a>
         </div>
-      </div>
-    </div>
-
-    <br>
 
 
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4>Entrée</h4>
+              <% @menus.each do |menu| %>
+                  <% if menu.category == "Entrée" %>
+                      <%= menu.title %>
+                      <%= menu.price_menu %>€<%= link_to "Supprimer", [@restaurant, menu], method: :delete, data: {confirm: "êtes-vous sûr ?"}, class:"btn btn-warning" %><br>
+                      <%= menu.content %><br>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4>Plat</h4>
+              <% @menus.each do |menu| %>
+                  <% if menu.category == "Plat" %>
+                      <%= menu.title %>
+                      <%= menu.price_menu %>€<%= link_to "Supprimer", [@restaurant, menu], method: :delete, data: {confirm: "êtes-vous sûr ?"}, class:"btn btn-warning" %><br>
+                      <%= menu.content %><br>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4>Déssert</h4>
+              <% @menus.each do |menu| %>
+                  <% if menu.category == "Déssert" %>
+                      <%= menu.title %>
+                      <%= menu.price_menu %>€<%= link_to "Supprimer", [@restaurant, menu], method: :delete, data: {confirm: "êtes-vous sûr ?"}, class:"btn btn-warning" %><br>
+                      <%= menu.content %><br>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
 
   </div>
 </div>
 </div>
-
-<!-- Slider
-================================================== -->
-<div class="listing-slider mfp-gallery-container margin-bottom-0">
-  <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length > 0 %>
-  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
-  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
-  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
-  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
-  <%= image_tag ('resto1.jpg'), class:"item mfp-gallery" %>
-</div>
+<% else %>
+<% end %>
+<!-- Gradient-->
+<div class="single-listing-page-titlebar"></div>
 
 
 <!-- Content
@@ -192,9 +112,9 @@
       <!-- Listing Nav -->
       <div id="listing-nav" class="listing-nav-container">
         <ul class="listing-nav">
-          <li><a href="#listing-overview" class="active">Overview</a></li>
-          <li><a href="#listing-pricing-list">Pricing</a></li>
-          <li><a href="#listing-location">Location</a></li>
+          <li><a href="#listing-overview" class="active">Description</a></li>
+          <li><a href="#listing-pricing-list">Menu</a></li>
+          <li><a href="#listing-location">Localisation</a></li>
           <li><a href="#listing-reviews">Reviews</a></li>
           <li><a href="#add-review">Add Review</a></li>
         </ul>
@@ -220,39 +140,93 @@
       </div>
 
 
+      <!-- carrousel -->
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <% if @photos %>
+                <% @photos.each do |photo| %>
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                    </ol>
+                <% end %>
+            <% end %>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <% if @photos %>
+                  <% @photos.each do |photo| %>
+                      <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                        <%= image_tag photo.image.url() %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Précédent</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Suivant</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <!-- Food Menu -->
       <div id="listing-pricing-list" class="listing-section">
-        <h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Pricing</h3>
+        <h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Menu</h3>
 
         <div class="show-more">
           <div class="pricing-list-container">
 
             <!-- Food List -->
-            <h4>Burgers</h4>
-            <ul>
-              <li>
-                <h5>Classic Burger</h5>
-                <p>Beef, salad, mayonnaise, spicey relish, cheese</p>
-                <span>$6</span>
-              </li>
-              <li>
-                <h5>Cheddar Burger</h5>
-                <p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
-                <span>$6</span>
-              </li>
-              <li>
-                <h5>Veggie Burger</h5>
-                <p>Panko crumbed and fried, grilled peppers and mushroom</p>
-                <span>$6</span>
-              </li>
-              <li>
-                <h5>Chicken Burger</h5>
-                <p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
-                <span>$6</span>
-              </li>
-            </ul>
+            <h4>Entrée</h4>
+                <% @menus.each do |menu| %>
+                    <% if menu.category == "Entrée" %>
+                        <ul>
+                          <li>
+                            <h5><%= menu.title %></h5>
+                            <p><%= menu.content %></p>
+                            <span><%= menu.price_menu %>€</span>
+                          </li>
+                        </ul>
+                    <% end %>
+                <% end %>
 
             <!-- Food List -->
+            <h4>Plat</h4>
+            <% @menus.each do |menu| %>
+                <% if menu.category == "Plat" %>
+                    <ul>
+                      <li>
+                        <h5><%= menu.title %></h5>
+                        <p><%= menu.content %></p>
+                        <span><%= menu.price_menu %>€</span>
+                      </li>
+                    </ul>
+                <% end %>
+            <% end %>
+
+            <!-- Food List -->
+            <h4>Déssert</h4>
+            <% @menus.each do |menu| %>
+                <% if menu.category == "Déssert" %>
+                    <ul>
+                      <li>
+                        <h5><%= menu.title %></h5>
+                        <p><%= menu.content %></p>
+                        <span><%= menu.price_menu %>€</span>
+                      </li>
+                    </ul>
+                <% end %>
+            <% end %>
+
+            <!-- Food List
             <h4>Drinks</h4>
             <ul>
               <li>
@@ -271,18 +245,18 @@
                 <h5>Water</h5>
                 <span>Free</span>
               </li>
-            </ul>
+            </ul>-->
 
           </div>
         </div>
-        <a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
+        <!--<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>-->
       </div>
       <!-- Food Menu / End -->
 
 
       <!-- Location -->
       <div id="listing-location" class="listing-section">
-        <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Location</h3>
+        <h3 class="listing-desc-headline margin-top-60 margin-bottom-30">Localisation</h3>
 
         <div id="singleListingMap-container">
           <!-- google maps -->
@@ -322,6 +296,8 @@
     </div>
 
 
+
+
     <!-- Sidebar
     ================================================== -->
     <div class="col-lg-4 col-md-4 margin-top-75 sticky">
@@ -329,33 +305,33 @@
 
       <!-- Verified Badge -->
       <div class="verified-badge with-tip" data-tip-content="Listing has been verified and belongs the business owner or manager.">
-        <i class="sl sl-icon-check"></i> Verified Listing
+        <i class="sl sl-icon-check"></i>- <%= @restaurant.reduction %> % sur l'addition
       </div>
 
-      <!-- Book Now -->
-      <div class="boxed-widget booking-widget margin-top-35">
-        <h3><i class="fa fa-calendar-check-o "></i> Réserver une table</h3>
-        <div class="row with-forms  margin-top-0">
-          <% if restorer_signed_in? && current_restorer.influencer? %>
-              <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
+            <% if restorer_signed_in? && current_restorer.influencer? %>
+          <!-- Book Now -->
+          <div class="boxed-widget booking-widget margin-top-35">
+            <h3><i class="fa fa-calendar-check-o "></i> Réserver une table</h3>
+            <div class="row with-forms  margin-top-0">
+                  <%= form_for([@restaurant, @restaurant.reservations.new]) do |f| %>
 
-          <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
-          <div class="col-lg-6 col-md-12">
-            <%= f.text_field :start_date, class:"form-control" %>
-          </div>
+              <!-- Date Picker - docs: http://www.vasterad.com/docs/listeo/#!/date_picker -->
+              <div class="col-lg-6 col-md-12">
+                <%= f.text_field :start_date, class:"form-control" %>
+              </div>
 
-          <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
-          <div class="col-lg-6 col-md-12">
-            <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"],["15h","15h"],["15h30","15h30"]], id: "time", prompt: "Heure", class:"form-control" %>
-          </div>
+              <!-- Time Picker - docs: http://www.vasterad.com/docs/listeo/#!/time_picker -->
+              <div class="col-lg-6 col-md-12">
+                <%= f.select :time, [["12h","12h"],["12h30","12h30"],["13h","13h"],["13h30","13h30"],["14h","14h"],["14h30","14h30"],["15h","15h"],["15h30","15h30"]], id: "time", prompt: "Heure", class:"form-control" %>
+              </div>
 
-          <!-- Panel Dropdown -->
-          <div class="col-lg-12">
-            <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]], id: "people", prompt: "Personne", class:"form-control" %>
-          </div>
-          <!-- Panel Dropdown / End -->
-                  <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
-        </div>
+              <!-- Panel Dropdown -->
+              <div class="col-lg-12">
+                <%= f.select :people, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"]], id: "people", prompt: "Personne", class:"form-control" %>
+              </div>
+              <!-- Panel Dropdown / End -->
+                      <%= f.hidden_field :restaurant_id, value: @restaurant.id %>
+            </div>
 
         <!-- progress button animation handled via custom.js -->
                   <div class="row">
@@ -363,7 +339,7 @@
                       <%= f.submit "Demande de réservation", class:"btn btn-primary" %>
                     </div>
                   </div>
-      </div>
+          </div>
 
               <% end %>
           <% end %>
@@ -400,14 +376,17 @@
       <!-- Contact -->
       <div class="boxed-widget margin-top-35">
         <div class="hosted-by-title">
-          <h4><span>Hosted by</span> <a href="pages-user-profile.html"><%= @restaurant.restorer.fullname %></a></h4>
+          <h4><span>Restaurant de</span> <%= link_to @restaurant.restorer.fullname, restorer_path(@restaurant.restorer) %></a></h4>
           <%= image_tag avatar_url(@restaurant.restorer), class:"hosted-by-avatar" %>
         </div>
         <ul class="listing-details-sidebar">
-          <li><i class="sl sl-icon-phone"></i><%= @restaurant.phone %></li>
+          <li><i class="sl sl-icon-phone"></i><%= image_tag ('call.png') %> <%= @restaurant.phone %></li>
           <!-- <li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li> -->
-          <li><i class="fa fa-envelope-o"></i> <a href="#"><%= @restaurant.restorer.email %></a></li>
-          <li><%= @restaurant.linkweb %></li>
+          <li><i class="fa fa-envelope-o"></i> <a href="#"><%= image_tag ('email.png') %> <%= @restaurant.restorer.email %></a></li>
+          <% if(params[:linkweb]).blank? %>
+            <li><%= image_tag ('web.png') %> <%= @restaurant.linkweb %></li>
+          <% else %>
+          <% end %>
         </ul>
 
         <!--
@@ -418,18 +397,10 @@
         </ul>-->
 
         <!-- Reply to review popup -->
-        <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-          <div class="small-dialog-header">
-            <h3>Send Message</h3>
-          </div>
-          <div class="message-reply margin-top-0">
-            <textarea cols="40" rows="3" placeholder="Your message to Tom"></textarea>
-            <button class="button">Send Message</button>
-          </div>
+        <br>
+        <div class="text-center">
+          <%= link_to "Envoyer un message", restorer_path(@restaurant.restorer), class:"btn btn-primary" %>
         </div>
-
-
-        <%= link_to "Envoyer un message", restorer_path(@restaurant.restorer) %>
       </div>
       <!-- Contact / End-->
 
@@ -438,3 +409,30 @@
 
   </div>
 </div>
+<br><br><br>
+<!-- Parallax -->
+<div class="parallax"
+     data-color="#36383e"
+     data-color-opacity="0.6"
+     data-img-width="800"
+     data-img-height="505">
+
+  <!-- Infobox -->
+  <div class="text-content white-font">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6 col-sm-8">
+          <h2>Augmenter la notoriété de votre restaurant</h2>
+          <p>Enregistrez votre restaurant sur la plateforme afin de le rendre visible auprès de tous les influenceurs et d'augmenter votre notoriété sur les réseaux sociaux.</p>
+          <a href="listings-list-with-sidebar.html" class="button margin-top-25">Découvrir</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Infobox / End -->
+
+</div>
+<!-- Parallax / End -->

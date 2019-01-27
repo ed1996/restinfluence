@@ -8,24 +8,21 @@
         <!--<img class="footer-logo" src="images/logo.png" alt="">-->
         <%= link_to 'Restinfluence', root_path, {:class=>"navbar-brand"} %>
         <br><br>
-        <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+        <p>Plateforme de mise en relation de restaurateur et d'influenceur. L'objectif est pour les restaurateurs de pouvoir augmenter la notoriété de leurs restaurants grâce aux influenceurs en leurs proposant des réductions dans leurs restaurants.</p>
       </div>
 
       <div class="col-md-4 col-sm-6 ">
-        <h4>Helpful Links</h4>
+        <h4>Navigation</h4>
         <ul class="footer-links">
-          <li><a href="#">Login</a></li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Add Listing</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><%= link_to 'Connexion', new_restorer_session_path %></li>
+          <li><%= link_to 'Inscription', new_restorer_registration_path %></li>
+          <li><%= link_to 'Tarif', tarif_path %></li>
         </ul>
 
         <ul class="footer-links">
-          <li><a href="#">FAQ</a></li>
+          <li><%= link_to 'FAQ', faq_path %></li>
           <li><a href="#">Blog</a></li>
-          <li><a href="#">Our Partners</a></li>
+          <li><%= link_to 'Politique de confidentialité', politique_de_confidentialite_path %></li>
           <li><a href="#">How It Works</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -33,9 +30,9 @@
       </div>
 
       <div class="col-md-3  col-sm-12">
-        <h4>Contact Us</h4>
+        <h4>Contact</h4>
         <div class="text-widget">
-          <span>12345 Little Lonsdale St, Melbourne</span> <br>
+          <span>4 Avenue Laurent Cély, Asnières-sur-Seine 92230</span> <br>
           Phone: <span>(123) 123-456 </span><br>
           E-Mail:<span> <a href="#">office@example.com</a> </span><br>
         </div>
@@ -54,7 +51,7 @@
     <!-- Copyright -->
     <div class="row">
       <div class="col-md-12">
-        <div class="copyrights">© 2017 Listeo. All Rights Reserved.</div>
+        <div class="copyrights">© 2019 RestInfluence. All Rights Reserved.</div>
       </div>
     </div>
 
